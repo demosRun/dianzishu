@@ -1,0 +1,79 @@
+<template lang="pug">
+.page2
+  .so.so-0
+    img.so.so-1(src="@|194.png|" o-hover="grow")
+    img.so.so-2(src="@|192.png|" o-hover="grow")
+    img.so.so-3(src="@|183.png|" o-hover="grow")
+    img.so.so-4(src="@|172.png|" o-hover="grow")
+    img.so.so-5(src="@|162.png|")
+  img.back(src="@|back.png|" o-hover="grow")
+  //- 左右
+  .left-right-box.clear
+    .left.edit.box-item
+    .right.text.box-item
+</template>
+<script>
+module.exports = {
+}
+</script>
+<style lang="less">
+.so-0 {
+  left: 521px;
+  top: 118px;
+  width: 875px;
+  height: 678px;
+  z-index: 0;;
+}
+.so-1 {
+  left: 461px;
+  top: 546px;
+  z-index: -1;
+}
+.so-2 {
+  left: 628px;
+  top: 546px;
+  z-index: -2;
+}
+.so-3 {
+  left: 188px;
+  top: 546px;
+  z-index: -3;
+}
+.so-4 {
+  left: 320px;
+  top: 546px;
+  z-index: -4;
+}
+.so-5 {
+  left: 0px;
+  top: 0px;
+  z-index: -5;
+}
+.back {
+  position: absolute;
+  left: -61%;
+  right: 0;
+  margin: auto;
+  top: 11%;
+  cursor: pointer;
+}
+[o-hover] {
+  cursor: pointer;
+}
+.left-right-box {
+  position: absolute;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: 15%;
+  width: 790px;
+  height: 578px;
+  margin: 0 auto;
+  .box-item {
+    background-color: #009fe9;
+    height: 100%;
+    float: left;
+    width: 50%;
+  }
+}
+</style>

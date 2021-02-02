@@ -1,0 +1,39 @@
+<template lang="pug">
+.home
+  .so.so-0
+    img.so.so-1(src="@|123.png|" o-animation="shrink" go="page2")
+    img.so.so-2(src="@|113.png|")
+</template>
+
+<script>
+  module.exports = {
+
+  }
+</script>
+
+
+<style lang="less">
+#copyright {
+  color: white;
+  position: absolute;
+  bottom: 0px;
+}
+.so-0 {
+  left: 723px;
+  top: 145px;
+  width: 460px;
+  height: 579px;
+  z-index: 0;;
+}
+.so-1 {
+  left: 158px;
+  top: 399px;
+  z-index: -1;
+  cursor: pointer;
+}
+.so-2 {
+  left: 0px;
+  top: 0px;
+  z-index: -2;
+}
+</style>

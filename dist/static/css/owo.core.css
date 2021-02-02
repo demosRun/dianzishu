@@ -1,0 +1,245 @@
+body, html, .page, .page-box {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+img {
+  border: none;
+}
+
+[route-active="false"] {
+  display: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+[o-animation="shrink"] {
+  -webkit-animation: shrink 1s linear alternate infinite;
+  animation: shrink 1s linear alternate infinite;
+}
+@-webkit-keyframes shrink{
+  0%{-webkit-transform:scale(0.9);}
+  100%{-webkit-transform:scale(1);}
+}
+@keyframes shrink{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+.home #copyright {
+  color: white;
+  position: absolute;
+  bottom: 0px;
+}
+
+.home .so-0 {
+  left: 723px;
+  top: 145px;
+  width: 460px;
+  height: 579px;
+  z-index: 0;
+}
+
+.home .so-1 {
+  left: 158px;
+  top: 399px;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.home .so-2 {
+  left: 0px;
+  top: 0px;
+  z-index: -2;
+}[o-hover="grow"] {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+[o-hover="grow"]:hover, [o-hover="grow"]:focus, [o-hover="grow"]:active {
+  transform: scale(1.1);
+}
+
+.page2 .so-0 {
+  left: 521px;
+  top: 118px;
+  width: 875px;
+  height: 678px;
+  z-index: 0;
+}
+
+.page2 .so-1 {
+  left: 461px;
+  top: 546px;
+  z-index: -1;
+}
+
+.page2 .so-2 {
+  left: 628px;
+  top: 546px;
+  z-index: -2;
+}
+
+.page2 .so-3 {
+  left: 188px;
+  top: 546px;
+  z-index: -3;
+}
+
+.page2 .so-4 {
+  left: 320px;
+  top: 546px;
+  z-index: -4;
+}
+
+.page2 .so-5 {
+  left: 0px;
+  top: 0px;
+  z-index: -5;
+}
+
+.page2 .back {
+  position: absolute;
+  left: -61%;
+  right: 0;
+  margin: auto;
+  top: 11%;
+  cursor: pointer;
+}
+
+.page2 [o-hover] {
+  cursor: pointer;
+}
+
+.page2 .left-right-box {
+  position: absolute;
+  background-color: white;
+  left: 0;
+  right: 0;
+  top: 15%;
+  width: 790px;
+  height: 578px;
+  margin: 0 auto;
+}
+
+.page2 .left-right-box .box-item {
+  background-color: #009fe9;
+  height: 100%;
+  float: left;
+  width: 50%;
+}
+.header1 .w1000 {
+  width: 1000px;
+  margin: 0 auto;
+  height: 45px;
+}
+
+.header1 {
+  background: #fff;
+  height: 45px;
+  width: 100%;
+}
+
+.header1 .left {
+  float: left;
+  height: 45px;
+  width: 90px;
+  position: relative;
+}
+
+.header1 .left a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header1 .left img {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 32px;
+}
+
+.header1 em {
+  float: right;
+  line-height: 45px;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.header1 em a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header1 em a:hover {
+  text-decoration: underline;
+}
+
+.header1 em,
+.header1 em a,
+.header1 em a:link,
+.header1 em a:visited,
+.header1 em a:hover {
+  color: #666;
+}
+#copyright {
+  height: 60px;
+  padding: 40px 0;
+  position: relative;
+  font-size: 14px;
+  height: 60px;
+  color: #000000;
+  z-index: 999;
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+  background-color: transparent;
+}
+
