@@ -53,9 +53,24 @@
 <!-- 框架script文件 -->
 <script src="./static/js/owo.core.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript" charset="UTF-8">
+// 模块 page2 的script代码
+var mockData = [['第一条 为健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，根据《中国共产党章程》制定本条例。', '第一条 为了深入贯彻习近平新时代中国特色社会主义思想，贯彻落实新时代党的建设总要求和新时代党的组织路线，坚持和加强党的全面领导，坚持党要管党、全面从严治党，健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，提高党的执政能力和领导水平，根据《中国共产党章程》和有关党内法规，制定本条例。'], ['第二条 本条例适用于党的省、自治区、直辖市，设区的市、自治州，县（旗）、自治县、不设区的市、市辖区的代表大会及其委员会和纪律检查委员会全体会议的选举工作。', '第二条 本条例适用于党的省、自治区、直辖市，设区的市和自治州，县（旗）、自治县、不设区的市和市辖区的代表大会及其委员会，以及党的地方纪律检查委员会的选举工作。'], ['第三条 党的地方各级组织任期届满，应按期进行换届选举。如需延期或提前换届选举，应经上级党的委员会批准。延长期限不得超过一年。', '第三条 党的地方各级组织任期届满，应当按期进行换届选举。如需延期或者提前换届选举，应当经上一级党的委员会批准。延长期限不得超过1年。'], ['第四条 党的地方各级代表大会代表，委员会委员、候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。', '第四条 党的地方各级代表大会代表，委员会委员和候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。']];
 owo.script = {
   "page": {},
-  "page2": {},
+  "page2": {
+    "created": function created() {
+      var newHtml = '';
+      mockData.forEach(function (element) {
+        newHtml += "<div class=\"item\">" + element[0] + "</div>";
+      });
+      this.query('.left-right-box .right').innerHTML = newHtml;
+      var oldHtml = '';
+      mockData.forEach(function (element) {
+        oldHtml += "<div class=\"item\">" + element[1] + "</div>";
+      });
+      this.query('.left-right-box .left').innerHTML = oldHtml;
+    }
+  },
   "topBar": {},
   "copyright": {}
 };
