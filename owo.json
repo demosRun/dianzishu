@@ -64,6 +64,15 @@
 			"name": "main",
 			"src": "./src/main.js",
 			"resource": true
+		},
+		{
+			"name": "toast",
+			"afterbody": true,
+			"src": "./owo_modules/toast.js"
+		},
+		{
+			"name": "check",
+			"src": "./owo_modules/check.js"
 		}
 	],
 	"styleList": [

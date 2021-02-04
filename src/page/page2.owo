@@ -1,26 +1,69 @@
 <template lang="pug">
 .page2
   .so.so-0
-    img.so.so-1(src="@|194.png|" o-hover="grow")
-    img.so.so-2(src="@|192.png|" o-hover="grow")
-    img.so.so-3(src="@|183.png|" o-hover="grow")
-    img.so.so-4(src="@|172.png|" o-hover="grow")
+    img.so.so-1(src="@|194.png|" o-hover="grow" o-tap="showDuizhao")
+    .so.so-2(o-hover="grow")
+      a(href="#" target="_blank")
+    img.so.so-3(src="@|183.png|" o-hover="grow" o-tap="lastPage")
+    img.so.so-4(src="@|172.png|" o-hover="grow" o-tap="nextPage")
     img.so.so-5(src="@|162.png|")
+    //- 左右
+    .left-show
+      .line
+      //- h1 字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览
+      //- h2 字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览
+      //- h3 字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览
+      //- h4 字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览字号预览
+      h1 中国共产党地方组织选举工作条例
+      .line
+      img(src="@|logoshow.png|")
+    .left-right-box.clear
+      .left.edit.box-item
+      .right.text.box-item
+    .yema
+      span.now 
+      span.cent /
+      span.all
   img.back(src="@|back.png|" o-hover="grow")
-  //- 左右
-  .left-right-box.clear
-    .left.edit.box-item
-    .right.text.box-item
+  img.logo(src="@|logo.png|")
 </template>
 <script>
-var mockData = [
-  ['第一条 为健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，根据《中国共产党章程》制定本条例。', '第一条 为了深入贯彻习近平新时代中国特色社会主义思想，贯彻落实新时代党的建设总要求和新时代党的组织路线，坚持和加强党的全面领导，坚持党要管党、全面从严治党，健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，提高党的执政能力和领导水平，根据《中国共产党章程》和有关党内法规，制定本条例。'],
-  ['第二条 本条例适用于党的省、自治区、直辖市，设区的市、自治州，县（旗）、自治县、不设区的市、市辖区的代表大会及其委员会和纪律检查委员会全体会议的选举工作。', '第二条 本条例适用于党的省、自治区、直辖市，设区的市和自治州，县（旗）、自治县、不设区的市和市辖区的代表大会及其委员会，以及党的地方纪律检查委员会的选举工作。'],
+
+var editData = []
+// 下面可以重复添加页
+// 第一页
+editData.push([
+  ['第一条 为健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，根据《中国共产党章程》制定本条例。', '第一条 <b>为了深入贯彻习近平新时代中国特色社会主义思想，贯彻落实新时代党的建设总要求和新时代党的组织路线，坚持和加强党的全面领导，坚持党要管党、全面从严治党，</b>健全党的民主集中制，完善党内选举制度，加强党的地方组织建设，<b>提高党的执政能力和领导水平，</b>根据《中国共产党章程》<b>和有关党内法规，</b>制定本条例。'],
+  ['第二条 本条例适用于党的省、自治区、直辖市，设区的市、自治州，县（旗）、自治县、不设区的市、市辖区的代表大会及其委员会和纪律检查委员会<b>全体会议</b>的选举工作。', '第二条 本条例适用于党的省、自治区、直辖市，设区的市和自治州，县（旗）、自治县、不设区的市和市辖区的代表大会及其委员会，以及<b>党的地方</b>纪律检查委员会的选举工作。'],
   ['第三条 党的地方各级组织任期届满，应按期进行换届选举。如需延期或提前换届选举，应经上级党的委员会批准。延长期限不得超过一年。', '第三条 党的地方各级组织任期届满，应当按期进行换届选举。如需延期或者提前换届选举，应当经上一级党的委员会批准。延长期限不得超过1年。'],
   ['第四条 党的地方各级代表大会代表，委员会委员、候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。', '第四条 党的地方各级代表大会代表，委员会委员和候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。'],
-]
+])
+
+// 第二页
+editData.push([
+  [
+    '第八条 代表应是共产党员中的优秀分子，<b>能够认真贯彻执行党的基本路线和方针、政策，</b>按党性原则办事，<b>严守党的纪律，有一定的议事能力。</b>',
+    '第八条 <b>党的地方各级代表大会</b>代表应当是党员中的优秀分子，认真贯彻执行<b>党的基本理论</b>、基本路线、<b>基本方略，自觉增强“四个意识”、坚定“四个自信”、做到“两个维护”，牢记党的初心和使命，密切联系党员和人民群众，发挥模范带头作用，遵守党章党规党纪和宪法法律法规，</b>按照党性原则办事，<b>具有履行代表职责的能力。</b>'
+  ],
+  [
+    '第九条  党的地方各级代表大会代表的名额，由召开代表大会的党的委员会全体会议，按照有利于充分发扬党内民主、有利于讨论决定问题和代表具有广泛性的原则确定，<b>报上一级党的委员会批准。</b><br>党的省、自治区、直辖市代表大会代表名额，一般为400至800名。<br>设区的市和自治州代表大会代表名额，一般为300至500名。<br>县（旗）、自治县、不设区的市和市辖区代表大会代表名额，一般为200至400名。<br>所辖党组织数量和党员人数较多或者较少的，可以适当增加或者减少代表名额。',
+    '第九条 党的地方各级代表大会的代表名额，由召开代表大会的党的委员会全体会议，按照有利于充分发扬党内民主、有利于讨论决定问题和代表具有广泛性的原则确定。<br>党的省、自治区、直辖市代表大会代表名额，一般为四百至八百名。<br>设区的市、自治州代表大会代表名额，一般为三百至五百名。<br>县（旗）、自治县、不设区的市和市辖区代表大会代表名额，一般为二百至四百名。<br><b>党员和所辖党组织较多或较少的，</b>可以适当增加或减少代表名额。'
+  ],
+  ['第三条 党的地方各级组织任期届满，应按期进行换届选举。如需延期或提前换届选举，应经上级党的委员会批准。延长期限不得超过一年。', '第三条 党的地方各级组织任期届满，应当按期进行换届选举。如需延期或者提前换届选举，应当经上一级党的委员会批准。延长期限不得超过1年。'],
+  ['第四条 党的地方各级代表大会代表，委员会委员、候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。', '第四条 党的地方各级代表大会代表，委员会委员和候补委员、常务委员会委员，纪律检查委员会委员、常务委员会委员实行差额选举。党的地方各级委员会和纪律检查委员会书记、副书记实行等额选举。'],
+])
+
 module.exports = {
+  data: {
+    nowIndex: 0,
+    isShowDuizhao: false
+  },
   created: function () {
+    this.creatPage()
+  },
+  creatPage: function () {
+    const mockData = editData[this.data.nowIndex]
+    this.query('.left-right-box').style.opacity = 0
     let newHtml = ''
     mockData.forEach(element => {
       newHtml += `<div class="item">${element[0]}</div>`
@@ -31,6 +74,60 @@ module.exports = {
       oldHtml += `<div class="item">${element[1]}</div>`
     });
     this.query('.left-right-box .left').innerHTML = oldHtml
+    // 计算高度
+    if (this.data.isShowDuizhao) {
+      setTimeout(() => {
+        const itemListL = this.queryAll('.left-right-box .left .item')
+        const itemList = this.queryAll('.left-right-box .right .item')
+        for (const key in itemList) {
+          if (Object.hasOwnProperty.call(itemList, key)) {
+            const elementR = itemList[key];
+            const elementL = itemListL[key];
+            if (elementR.offsetHeight > elementL.offsetHeight) {
+              elementL.style.height = elementR.offsetHeight + 'px'
+            } else {
+              elementR.style.height = elementL.offsetHeight + 'px'
+            }
+            console.log(element.offsetHeight)
+          }
+        }
+      }, 0);
+    }
+    // 计算页码
+    if (this.query('.yema .all')) {
+      this.query('.yema .now').innerText = this.data.nowIndex + 1
+      this.query('.yema .all').innerText = editData.length + '页'
+      setTimeout(() => {
+        this.query('.left-right-box').style.opacity = 1
+      }, 0);
+    }
+  },
+  lastPage: function () {
+    const mockData = editData[this.data.nowIndex - 1]
+    if (mockData) {
+      this.data.nowIndex--
+      this.creatPage()
+    } else {
+      owo.tool.toast('已经是第一页了!')
+    }
+  },
+  nextPage: function () {
+    const mockData = editData[this.data.nowIndex + 1]
+    if (mockData) {
+      this.data.nowIndex++
+      this.creatPage()
+    } else {
+      owo.tool.toast('已经是最后一页了!')
+    }
+  },
+  showDuizhao: function () {
+    this.data.isShowDuizhao = !this.data.isShowDuizhao
+    if (this.data.isShowDuizhao) {
+      this.$el.classList.add('duizhao')
+    } else {
+      this.$el.classList.remove('duizhao')
+    }
+    this.creatPage()
   }
 }
 </script>
@@ -38,36 +135,38 @@ module.exports = {
 .so-0 {
   left: 0;
   right: 0;
-  top: 118px;
+  top: 170px;
   width: 875px;
   height: 678px;
-  z-index: 0;
+  z-index: 10;
   margin: 0 auto;
 }
 .so-1 {
   left: 461px;
   top: 546px;
-  z-index: -1;
+  z-index: 1;
 }
 .so-2 {
   left: 628px;
   top: 546px;
-  z-index: -2;
+  z-index: 2;
+  width: 91px;
+  height: 29px;
+  background-image: url('@|192.png|');
 }
 .so-3 {
   left: 188px;
   top: 546px;
-  z-index: -3;
+  z-index: 3;
 }
 .so-4 {
   left: 320px;
   top: 546px;
-  z-index: -4;
+  z-index: 4;
 }
 .so-5 {
   left: 0px;
   top: 0px;
-  z-index: -5;
 }
 .back {
   position: absolute;
@@ -85,10 +184,12 @@ module.exports = {
   background-color: white;
   left: 0;
   right: 0;
-  top: 15%;
+  top: 4%;
   width: 790px;
-  height: 578px;
+  height: 500px;
   margin: 0 auto;
+  overflow: auto;
+  // transition: opacity 0.1s;
   .box-item {
     height: 96%;
     float: left;
@@ -101,5 +202,67 @@ module.exports = {
       margin-bottom: 10px;
     }
   }
+}
+.yema {
+  position: absolute;
+  right: 44px;
+  bottom: 100px;
+  font-size: 22px;
+  font-style: italic;
+  color: tomato;
+  .now {
+    font-size: 27px;
+  }
+  .cent {
+    margin: 0 5px;
+  }
+  .all {
+    font-style: normal;
+  }
+}
+b {
+  font-weight: normal;
+}
+.left.box-item {
+  opacity: 0;
+}
+.left-show {
+  position: absolute;
+  left: 60px;
+  width: 345px;
+  right: 0;
+  top: 70px;
+  line-height: 1.7;
+  text-align: center;
+  z-index: 9;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #dd2425;
+  h1, h2,h3,h4,h5,h6 {
+    display: block;
+    width: 100%;
+  }
+  img {
+    display: block;
+    margin: 0  auto;
+  }
+  .line {
+    background-color: #ec4545;
+    height: 3px;
+    width: 55px;
+    margin: 25px 0;
+  }
+}
+.logo {
+  position: absolute;
+  left: 61%;
+  right: 0;
+  top: 10%;
+  margin: 0 auto;
+  z-index: 99;
+  height: 58px;
 }
 </style>

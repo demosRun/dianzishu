@@ -105,3 +105,21 @@ body {
   bottom: 0;
   color: white;
 }
+
+.duizhao .box-item.left b {
+  color: red;
+  font-weight: bold;
+}
+.duizhao .box-item.right b{
+  color: #00B0F0;
+  font-weight: bold;
+}
+
+.duizhao .left-show {
+  display: none;
+}
+
+.duizhao .left.edit.box-item {
+  display: block;
+  opacity: 1;
+}

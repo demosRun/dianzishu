@@ -84,14 +84,29 @@ li {
 .home .so-1 {
   left: 158px;
   top: 399px;
-  z-index: -1;
+  z-index: 3;
   cursor: pointer;
 }
 
 .home .so-2 {
   left: 0px;
   top: 0px;
-  z-index: -2;
+  box-shadow: 24px 19px 27px #422e2e;
+}
+
+.home .book-bg {
+  background-image: url('../resource/113.png');
+  width: 460px;
+  height: 579px;
+}
+
+.home .book-bg h2 {
+  color: #be0912;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 150px;
 }[o-hover="grow"] {
   display: inline-block;
   vertical-align: middle;
@@ -107,41 +122,43 @@ li {
 .page2 .so-0 {
   left: 0;
   right: 0;
-  top: 118px;
+  top: 170px;
   width: 875px;
   height: 678px;
-  z-index: 0;
+  z-index: 10;
   margin: 0 auto;
 }
 
 .page2 .so-1 {
   left: 461px;
   top: 546px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .page2 .so-2 {
   left: 628px;
   top: 546px;
-  z-index: -2;
+  z-index: 2;
+  width: 91px;
+  height: 29px;
+  background-image: url('../resource/192.png');
 }
 
 .page2 .so-3 {
   left: 188px;
   top: 546px;
-  z-index: -3;
+  z-index: 3;
 }
 
 .page2 .so-4 {
   left: 320px;
   top: 546px;
-  z-index: -4;
+  z-index: 4;
 }
 
 .page2 .so-5 {
   left: 0px;
   top: 0px;
-  z-index: -5;
 }
 
 .page2 .back {
@@ -162,10 +179,11 @@ li {
   background-color: white;
   left: 0;
   right: 0;
-  top: 15%;
+  top: 4%;
   width: 790px;
-  height: 578px;
+  height: 500px;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .page2 .left-right-box .box-item {
@@ -180,6 +198,84 @@ li {
 
 .page2 .left-right-box .box-item .item {
   margin-bottom: 10px;
+}
+
+.page2 .yema {
+  position: absolute;
+  right: 44px;
+  bottom: 100px;
+  font-size: 22px;
+  font-style: italic;
+  color: tomato;
+}
+
+.page2 .yema .now {
+  font-size: 27px;
+}
+
+.page2 .yema .cent {
+  margin: 0 5px;
+}
+
+.page2 .yema .all {
+  font-style: normal;
+}
+
+.page2 b {
+  font-weight: normal;
+}
+
+.page2 .left.box-item {
+  opacity: 0;
+}
+
+.page2 .left-show {
+  position: absolute;
+  left: 60px;
+  width: 345px;
+  right: 0;
+  top: 70px;
+  line-height: 1.7;
+  text-align: center;
+  z-index: 9;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #dd2425;
+}
+
+.page2 .left-show h1,
+.page2 .left-show h2,
+.page2 .left-show h3,
+.page2 .left-show h4,
+.page2 .left-show h5,
+.page2 .left-show h6 {
+  display: block;
+  width: 100%;
+}
+
+.page2 .left-show img {
+  display: block;
+  margin: 0  auto;
+}
+
+.page2 .left-show .line {
+  background-color: #ec4545;
+  height: 3px;
+  width: 55px;
+  margin: 25px 0;
+}
+
+.page2 .logo {
+  position: absolute;
+  left: 61%;
+  right: 0;
+  top: 10%;
+  margin: 0 auto;
+  z-index: 99;
+  height: 58px;
 }
 .header1 .w1000 {
   width: 1000px;
