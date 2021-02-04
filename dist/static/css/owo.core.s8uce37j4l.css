@@ -357,6 +357,11 @@ li {
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-style: dashed;
+  border-radius: 5px;
+  background-color: #edfaff;
+  padding: 5px;
 }
 
 .page2 .bottom-tool-box {

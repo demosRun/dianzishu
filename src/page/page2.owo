@@ -147,6 +147,7 @@ module.exports = {
     const mockData = editData[this.data.nowIndex - 1]
     if (mockData) {
       this.data.nowIndex--
+      this.data.isShowDuizhao = false
       this.creatPage()
     } else {
       owo.tool.toast('已经是第一页了!')
@@ -156,6 +157,7 @@ module.exports = {
     const mockData = editData[this.data.nowIndex + 1]
     if (mockData) {
       this.data.nowIndex++
+      this.data.isShowDuizhao = false
       this.creatPage()
     } else {
       owo.tool.toast('已经是最后一页了!')
@@ -165,8 +167,15 @@ module.exports = {
     this.data.isShowDuizhao = !this.data.isShowDuizhao
     if (this.data.isShowDuizhao) {
       this.$el.classList.add('duizhao')
+      owo.tool.toast('红蓝标注分别代表新增，修改的内容', {
+        time: 4000
+      })
+      this.query('.cent-button').innerText = '新修订版'
+      this.query('.so-1').src = '@|194-2.png|'
     } else {
+      this.query('.cent-button').innerText = '修改前后对照表'
       this.$el.classList.remove('duizhao')
+      this.query('.so-1').src = '@|194.png|'
     }
     this.creatPage()
   },
@@ -397,6 +406,11 @@ b {
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-style: dashed;
+  border-radius: 5px;
+  background-color: #edfaff;
+  padding: 5px;
 }
 .bottom-tool-box {
   position: fixed;
