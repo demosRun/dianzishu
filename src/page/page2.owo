@@ -1,6 +1,7 @@
 <template lang="pug">
 .page2
-  .so.so-0
+
+  .so.so-0.no-phone
     img.so.so-1(src="@|194.png|" o-hover="grow" o-tap="showDuizhao")
     .so.so-2(o-hover="grow")
       a(href="#" target="_blank")
@@ -24,8 +25,37 @@
       span.now 
       span.cent /
       span.all
-  img.back(src="@|back.png|" o-hover="grow")
-  img.logo(src="@|logo.png|")
+  img.back.no-phone(src="@|back.png|" o-hover="grow" go="page")
+  img.logo.no-phone(src="@|logo.png|")
+  .no-pc.phone-book-show
+    .title-bar
+      img.back-phone(src="@|back-phone.png|" go="page")
+      span 中国共产党地方组织选举工作条例
+    .phone-conn
+    .bottom-bar
+      .left(o-tap="lastPage")
+        img(src="@|left.png|")
+        span 上一页
+      .cent
+        .cent-button(o-tap="showDuizhao") 修改前后对照表
+      .right(o-tap="nextPage")
+        span 下一页
+        img(src="@|right.png|")
+    .bottom-tool-box
+      .tool-item(o-tap="sizeAdd")
+        img(src="@|fangda.png|")
+        span 放大
+      .tool-item(o-tap="sizeJian")
+        img(src="@|suoxiao.png|")
+        span 缩小
+      .tool-item(o-tap="huanfu")
+        img(src="@|huanfu.png|")
+        span 换肤
+      .tool-item
+        a(href="#")
+          img(src="@|jiedu.png|")
+          span 解读
+
 </template>
 <script>
 
@@ -56,7 +86,9 @@ editData.push([
 module.exports = {
   data: {
     nowIndex: 0,
-    isShowDuizhao: false
+    isShowDuizhao: false,
+    fontSize: 18,
+    huanfu: false
   },
   created: function () {
     this.creatPage()
@@ -101,6 +133,15 @@ module.exports = {
         this.query('.left-right-box').style.opacity = 1
       }, 0);
     }
+    // 生成手机的
+    let newHtmlPhone = ''
+    mockData.forEach(element => {
+      newHtmlPhone += `<div class="item new-item">${element[0]}</div>`
+      if (this.data.isShowDuizhao) {
+        newHtmlPhone += `<div class="item old-item">${element[1]}</div>`
+      }
+    });
+    this.query('.phone-conn').innerHTML = newHtmlPhone
   },
   lastPage: function () {
     const mockData = editData[this.data.nowIndex - 1]
@@ -128,7 +169,32 @@ module.exports = {
       this.$el.classList.remove('duizhao')
     }
     this.creatPage()
-  }
+  },
+  huanfu: function () {
+    this.data.huanfu = !this.data.huanfu
+    if (this.data.huanfu) {
+      this.$el.classList.add('huanfu')
+    } else {
+      this.$el.classList.remove('huanfu')
+    }
+    this.creatPage()
+  },
+  sizeAdd: function () {
+    if (this.data.fontSize < 30) {
+      this.data.fontSize = this.data.fontSize + 2
+      this.query('.phone-conn').style.fontSize = this.data.fontSize + 'px'
+    } else {
+      owo.tool.toast('已经是最大字号!')
+    }
+  },
+  sizeJian: function () {
+    if (this.data.fontSize > 16) {
+      this.data.fontSize = this.data.fontSize - 2
+      this.query('.phone-conn').style.fontSize = this.data.fontSize + 'px'
+    } else {
+      owo.tool.toast('已经是最小字号!')
+    }
+  },
 }
 </script>
 <style lang="less">
@@ -264,5 +330,97 @@ b {
   margin: 0 auto;
   z-index: 99;
   height: 58px;
+}
+.title-bar {
+  height: 40px;
+  background-color: #fff5e6;
+  display: flex;
+  align-items: center;
+  img {
+    height: 25px;
+    margin: 0 12px;
+  }
+  span {
+    color: #bd0f00;
+    font-weight: bold;
+    font-size: 17px;
+  }
+}
+.phone-book-show {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  .phone-conn {
+    height: calc(100% - 130px);
+    width: calc(100% - 20px);
+    font-size: 18px;
+    line-height: 1.7;
+    text-indent: 2em;
+    overflow: auto;
+    padding: 10px;
+    padding-bottom: 40px;
+  }
+  .bottom-bar {
+    height: 40px;
+    display: flex;
+    overflow: hidden;
+    background-color: #fff5e6;
+    .left, .right {
+      display: flex;
+      width: 90px;
+      align-items: center;
+      color: #bd0f00;
+      font-weight: bold;
+      justify-content: center;
+      font-size: 17px;
+      img {
+        height: 20px;
+        margin: 10px;
+      }
+    }
+    .cent {
+      width: calc(100% - 180px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .cent-button {
+        background-color: #bd0f00;
+        color: white;
+        padding: 5px 6px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+.old-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.bottom-tool-box {
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  background-color: #fae0bb;
+  display: flex;
+  border-radius: 5px 0 0 0;
+  padding: 0 5px;
+  padding-top: 5px;
+  opacity: 0.9;
+  img, span, a {
+    display: block;
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 20px;
+    color: #da921e;
+  }
+  img {
+    height: 18px;
+  }
+  .tool-item {
+    margin: 0 10px;
+  }
 }
 </style>

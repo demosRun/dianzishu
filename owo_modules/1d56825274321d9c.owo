@@ -1,5 +1,5 @@
 <template>
-  <div class="header1">
+  <div class="header1 no-phone">
     <div class="w1000 clear">
       <div class="left">
         <a href="http://www.people.com.cn" target="_blank">

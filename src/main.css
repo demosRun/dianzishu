@@ -106,11 +106,11 @@ body {
   color: white;
 }
 
-.duizhao .box-item.left b {
+.duizhao .box-item.left b, .duizhao .old-item b {
   color: red;
   font-weight: bold;
 }
-.duizhao .box-item.right b{
+.duizhao .box-item.right b , .duizhao .new-item b{
   color: #00B0F0;
   font-weight: bold;
 }
@@ -122,4 +122,62 @@ body {
 .duizhao .left.edit.box-item {
   display: block;
   opacity: 1;
+}
+
+.phone {
+  background-image: url('@|phone-bg.jpg|');
+}
+
+.phone #copyright {
+  width: 96%;
+  padding: 40px 2%;
+}
+
+.phone .home .so-0 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.phone .home .book-bg {
+  background-image: url('@|113.png|');
+  width: 94vw;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 121vw;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  right: 0;
+}
+
+.phone .home .book-bg h2 {
+  color: #be0912;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.phone .home .so-1 {
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 90vw;
+  bottom: 0;
+  height: 13vw;
+}
+
+.huanfu .title-bar {
+  background-color: #4e555a;
+}
+
+.huanfu .title-bar span {
+  color: white;
+}
+
+.huanfu .phone-conn {
+  background-color: #f9f6f6;
 }
