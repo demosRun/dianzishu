@@ -19,7 +19,7 @@
   <meta name="catalogs" content="{TAG_83943_TAG}" />
 
   <!-- 页面主样式文件 -->
-  <link charset="utf-8" rel="stylesheet" href="./static/css/owo.core.s9ruu9vihz8.css">
+  <link charset="utf-8" rel="stylesheet" href="./static/css/owo.core.ph3bwwvdr4e.css">
 
   <!-- 附属css文件 -->
   <link rel="stylesheet" href="./static/css/main.css" charset="utf-8">
@@ -40,13 +40,15 @@
   <!-- 页面[page2]-->
   <div class="page2 page" template="page2" style="display: none;">
     <div class="so so-0 no-phone">
-      <img class="so so-1" src="./static/resource/194.png" o-hover="grow" o-tap="showDuizhao">
-      <div class="so so-2" o-hover="grow">
-        <a href="#" target="_blank"></a>
+      <div class="button-box">
+        <div class="button" o-hover="grow">
+          <a href="#" target="_blank">图解</a>
+        </div>
+        <div class="button" src="./static/resource/183.png" o-hover="grow" o-tap="lastPage">上一页</div>
+        <div class="button" src="./static/resource/172.png" o-hover="grow" o-tap="nextPage">下一页</div>
+        <div class="button duizhao" src="./static/resource/194.png" o-hover="grow" o-tap="showDuizhao">修改前后对照表</div>
       </div>
-      <img class="so so-3" src="./static/resource/183.png" o-hover="grow" o-tap="lastPage">
-      <img class="so so-4" src="./static/resource/172.png" o-hover="grow" o-tap="nextPage">
-      <img class="so so-5" src="./static/resource/162.png">
+      <img class="button so so-5" src="./static/resource/162.png">
       <div class="left-show">
         <div class="line"></div>
         <h1>中国共产党地方组织选举工作条例</h1>
@@ -100,7 +102,7 @@
         <div class="tool-item">
           <a href="#">
             <img src="./static/resource/jiedu.png">
-            <span>解读</span>
+            <span>图解</span>
           </a>
         </div>
       </div>
@@ -127,7 +129,7 @@
   <div id="copyright" class="owo-copyright owo-block" template="copyright" style="display: none;">人 民 网 版 权 所 有 ，未 经 书 面 授 权 禁 止 使 用<br>Copyright © 1997-2021 by www.people.com.cn. all rights reserved</div>
 
   <!-- 框架script文件 -->
-  <script src="./static/js/owo.core.s9ruu9vihz8.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="./static/js/owo.core.ph3bwwvdr4e.js" type="text/javascript" charset="UTF-8"></script>
   <script type="text/javascript" charset="UTF-8">
     // 模块 page2 的script代码
     var editData = []; // 下面可以重复添加页
@@ -248,11 +250,11 @@
               time: 4000
             });
             this.query('.cent-button').innerText = '新修订版';
-            this.query('.so-1').src = './static/resource/194-2.png';
+            this.query('.duizhao').innerText = '新修订版';
           } else {
             this.query('.cent-button').innerText = '修改前后对照表';
+            this.query('.duizhao').innerText = '修改前后对照表';
             this.$el.classList.remove('duizhao');
-            this.query('.so-1').src = './static/resource/194.png';
           }
 
           this.creatPage();

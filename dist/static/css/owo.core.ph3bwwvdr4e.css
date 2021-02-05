@@ -395,6 +395,34 @@ li {
 .page2 .bottom-tool-box .tool-item {
   margin: 0 10px;
 }
+
+.page2 .button-box {
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+.page2 .button-box .button {
+  color: white;
+  background-color: #c22700;
+  padding: 8px 20px;
+  margin: 0 20px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 20px;
+  box-shadow: 2px 2px 5px #756e6e;
+}
+
+.page2 .button-box .button a {
+  color: white;
+  outline: none;
+}
 .header1 .w1000 {
   width: 1000px;
   margin: 0 auto;

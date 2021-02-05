@@ -2,12 +2,15 @@
 .page2
 
   .so.so-0.no-phone
-    img.so.so-1(src="@|194.png|" o-hover="grow" o-tap="showDuizhao")
-    .so.so-2(o-hover="grow")
-      a(href="#" target="_blank")
-    img.so.so-3(src="@|183.png|" o-hover="grow" o-tap="lastPage")
-    img.so.so-4(src="@|172.png|" o-hover="grow" o-tap="nextPage")
-    img.so.so-5(src="@|162.png|")
+    
+    
+    .button-box
+      .button(o-hover="grow")
+        a(href="#" target="_blank") 图解
+      .button(src="@|183.png|" o-hover="grow" o-tap="lastPage") 上一页
+      .button(src="@|172.png|" o-hover="grow" o-tap="nextPage") 下一页
+      .button.duizhao(src="@|194.png|" o-hover="grow" o-tap="showDuizhao") 修改前后对照表
+    img.button.so.so-5(src="@|162.png|")
     //- 左右
     .left-show
       .line
@@ -54,7 +57,7 @@
       .tool-item
         a(href="#")
           img(src="@|jiedu.png|")
-          span 解读
+          span 图解
 
 </template>
 <script>
@@ -171,11 +174,11 @@ module.exports = {
         time: 4000
       })
       this.query('.cent-button').innerText = '新修订版'
-      this.query('.so-1').src = '@|194-2.png|'
+      this.query('.duizhao').innerText = '新修订版'
     } else {
       this.query('.cent-button').innerText = '修改前后对照表'
+      this.query('.duizhao').innerText = '修改前后对照表'
       this.$el.classList.remove('duizhao')
-      this.query('.so-1').src = '@|194.png|'
     }
     this.creatPage()
   },
@@ -435,6 +438,31 @@ b {
   }
   .tool-item {
     margin: 0 10px;
+  }
+}
+.button-box {
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  .button {
+    color: white;
+    background-color: #c22700;
+    padding: 8px 20px;
+    margin: 0 20px;
+    border-radius: 18px;
+    font-size: 15px;
+    line-height: 20px;
+    box-shadow: 2px 2px 5px #756e6e;
+    a {
+      color: white;
+      outline: none;
+    }
   }
 }
 </style>
