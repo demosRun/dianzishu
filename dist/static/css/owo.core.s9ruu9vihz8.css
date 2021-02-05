@@ -77,7 +77,8 @@ li {
   left: 0;
   right: 0;
   margin: auto;
-  top: 145px;
+  top: 0;
+  bottom: 0;
   width: 460px;
   height: 579px;
   z-index: 0;
@@ -124,7 +125,7 @@ li {
 .page2 .so-0 {
   left: 0;
   right: 0;
-  top: 170px;
+  top: 110px;
   width: 875px;
   height: 678px;
   z-index: 10;
@@ -165,7 +166,7 @@ li {
 
 .page2 .back {
   position: absolute;
-  left: -61%;
+  left: -70%;
   right: 0;
   margin: auto;
   top: 11%;
@@ -272,9 +273,9 @@ li {
 
 .page2 .logo {
   position: absolute;
-  left: 61%;
+  left: 67%;
   right: 0;
-  top: 10%;
+  top: 9%;
   margin: 0 auto;
   z-index: 99;
   height: 58px;
