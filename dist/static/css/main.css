@@ -128,11 +128,6 @@ body {
   background-image: url('../resource/phone-bg.jpg');
 }
 
-.phone #copyright {
-  width: 96%;
-  padding: 40px 2%;
-}
-
 .phone .home .so-0 {
   width: 100%;
   height: 100%;
@@ -199,4 +194,13 @@ body {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background:rgba(255,0,0,0.4);
+}
+
+.phone #copyright {
+  line-height: 20px;
+  padding: 5px 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  font-size: 12px;
 }

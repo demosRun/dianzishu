@@ -331,12 +331,12 @@ li {
   color: #bd0f00;
   font-weight: bold;
   justify-content: center;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .page2 .phone-book-show .bottom-bar .left img,
 .page2 .phone-book-show .bottom-bar .right img {
-  height: 20px;
+  height: 16px;
   margin: 10px;
 }
 
