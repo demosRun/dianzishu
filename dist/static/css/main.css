@@ -204,3 +204,24 @@ body {
   right: 0;
   font-size: 12px;
 }
+.phone .page2 .title-bar .title {
+  font-size: 14px;
+  display: block;
+  width: calc(100% - 80px);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.yema-phone {
+  position: absolute;
+  right: 5px;
+}
+
+.duizhao .dzb {
+  display: none;
+}
+
+.duizhao .xxd {
+  display: block;
+}

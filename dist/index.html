@@ -19,7 +19,7 @@
   <meta name="catalogs" content="{TAG_83943_TAG}" />
 
   <!-- 页面主样式文件 -->
-  <link charset="utf-8" rel="stylesheet" href="./static/css/owo.core.9byuf5gna1n.css">
+  <link charset="utf-8" rel="stylesheet" href="./static/css/owo.core.3d4sf985qpt.css">
 
   <!-- 附属css文件 -->
   <link rel="stylesheet" href="./static/css/main.css" charset="utf-8">
@@ -46,7 +46,8 @@
         </div>
         <div class="button" src="./static/resource/183.png" o-hover="grow" o-tap="lastPage">上一页</div>
         <div class="button" src="./static/resource/172.png" o-hover="grow" o-tap="nextPage">下一页</div>
-        <div class="button duizhao" src="./static/resource/194.png" o-hover="grow" o-tap="showDuizhao">修改前后对照表</div>
+        <div class="button duizhao dzb" src="./static/resource/194.png" o-hover="grow" o-tap="showDuizhao">修改前后对照表</div>
+        <div class="button duizhao xxd" src="./static/resource/194.png" o-hover="grow" o-tap="showDuizhao">新修订版</div>
       </div>
       <img class="button so so-5" src="./static/resource/162.png">
       <div class="left-show">
@@ -70,7 +71,12 @@
     <div class="no-pc phone-book-show">
       <div class="title-bar">
         <img class="back-phone" src="./static/resource/back-phone.png" go="page">
-        <span>中国共产党地方组织选举工作条例</span>
+        <span class="title">中国共产党地方组织选举工作条例</span>
+        <div class="yema-phone">
+          <span class="now"> </span>
+          <span class="cent">/</span>
+          <span class="all"></span>
+        </div>
       </div>
       <div class="phone-conn"></div>
       <div class="bottom-bar">
@@ -79,7 +85,8 @@
           <span>上一页</span>
         </div>
         <div class="cent">
-          <div class="cent-button" o-tap="showDuizhao">修改前后对照表</div>
+          <div class="cent-button dzb" o-tap="showDuizhao">修改前后对照表</div>
+          <div class="cent-button xxd" o-tap="showDuizhao">新修订版</div>
         </div>
         <div class="right" o-tap="nextPage">
           <span>下一页</span>
@@ -94,10 +101,6 @@
         <div class="tool-item" o-tap="sizeJian">
           <img src="./static/resource/suoxiao.png">
           <span>缩小</span>
-        </div>
-        <div class="tool-item" o-tap="huanfu">
-          <img src="./static/resource/huanfu.png">
-          <span>换肤</span>
         </div>
         <div class="tool-item">
           <a href="#">
@@ -129,7 +132,7 @@
   <div id="copyright" class="owo-copyright owo-block" template="copyright" style="display: none;">人 民 网 版 权 所 有 ，未 经 书 面 授 权 禁 止 使 用<br>Copyright © 1997-2021 by www.people.com.cn. all rights reserved</div>
 
   <!-- 框架script文件 -->
-  <script src="./static/js/owo.core.9byuf5gna1n.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="./static/js/owo.core.3d4sf985qpt.js" type="text/javascript" charset="UTF-8"></script>
   <script type="text/javascript" charset="UTF-8">
     // 模块 page2 的script代码
     var editData = []; // 下面可以重复添加页
@@ -192,6 +195,7 @@
           var _this = this;
 
           var mockData = editData[this.data.nowIndex];
+          console.log(mockData);
           this.query('.left-right-box').style.opacity = 0;
           var newHtml = '';
           mockData.forEach(function(element) {
@@ -234,6 +238,14 @@
             setTimeout(function() {
               _this.query('.left-right-box').style.opacity = 1;
             }, 0);
+          }
+
+          if (this.query('.yema-phone .all')) {
+            this.query('.yema-phone .now').innerText = this.data.nowIndex + 1;
+            this.query('.yema-phone .all').innerText = editData.length;
+            setTimeout(function() {
+              _this.query('.left-right-box').style.opacity = 1;
+            }, 0);
           } // 生成手机的
 
 
@@ -245,6 +257,11 @@
               newHtmlPhone += "<div class=\"item old-item\">" + element[1] + "</div>";
             }
           });
+
+          if (editData.length == this.data.nowIndex + 1) {
+            newHtmlPhone += '<div class="box-show">' + this.query('.left-show').innerHTML + '</div>';
+          }
+
           this.query('.phone-conn').innerHTML = newHtmlPhone;
         },
         "lastPage": function lastPage() {
@@ -253,6 +270,7 @@
           if (mockData) {
             this.data.nowIndex--;
             this.data.isShowDuizhao = false;
+            this.$el.classList.remove('duizhao');
             this.creatPage();
           } else {
             owo.tool.toast('已经是第一页了!');
@@ -264,6 +282,7 @@
           if (mockData) {
             this.data.nowIndex++;
             this.data.isShowDuizhao = false;
+            this.$el.classList.remove('duizhao');
             this.creatPage();
           } else {
             owo.tool.toast('已经是最后一页了!');
@@ -277,11 +296,7 @@
             owo.tool.toast('红蓝标注分别代表新增，修改的内容', {
               time: 4000
             });
-            this.query('.cent-button').innerText = '新修订版';
-            this.query('.duizhao').innerText = '新修订版';
           } else {
-            this.query('.cent-button').innerText = '修改前后对照表';
-            this.query('.duizhao').innerText = '修改前后对照表';
             this.$el.classList.remove('duizhao');
           }
 

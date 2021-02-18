@@ -224,6 +224,14 @@ li {
   font-style: normal;
 }
 
+.page2 .yema-phone .cent {
+  margin: 0 4px;
+}
+
+.page2 .yema-phone .all {
+  font-style: normal;
+}
+
 .page2 b {
   font-weight: normal;
 }
@@ -355,9 +363,10 @@ li {
 }
 
 .page2 .old-item {
+  margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   border: 1px solid #ccc;
   border-style: dashed;
   border-radius: 5px;
@@ -422,6 +431,25 @@ li {
 .page2 .button-box .button a {
   color: white;
   outline: none;
+}
+
+.page2 .xxd {
+  display: none;
+}
+
+.page2 .box-show {
+  margin-top: 40px;
+}
+
+.page2 .box-show h1 {
+  font-size: 22px;
+  text-indent: 0;
+  text-align: center;
+}
+
+.page2 .box-show img {
+  margin: 0 auto;
+  display: block;
 }
 .header1 .w1000 {
   width: 1000px;

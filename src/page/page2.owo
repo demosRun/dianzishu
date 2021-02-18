@@ -1,15 +1,13 @@
 <template lang="pug">
 .page2
-
   .so.so-0.no-phone
-    
-    
     .button-box
       .button(o-hover="grow")
         a(href="#" target="_blank") 图解
       .button(src="@|183.png|" o-hover="grow" o-tap="lastPage") 上一页
       .button(src="@|172.png|" o-hover="grow" o-tap="nextPage") 下一页
-      .button.duizhao(src="@|194.png|" o-hover="grow" o-tap="showDuizhao") 修改前后对照表
+      .button.duizhao.dzb(src="@|194.png|" o-hover="grow" o-tap="showDuizhao") 修改前后对照表
+      .button.duizhao.xxd(src="@|194.png|" o-hover="grow" o-tap="showDuizhao") 新修订版
     img.button.so.so-5(src="@|162.png|")
     //- 左右
     .left-show
@@ -33,14 +31,19 @@
   .no-pc.phone-book-show
     .title-bar
       img.back-phone(src="@|back-phone.png|" go="page")
-      span 中国共产党地方组织选举工作条例
+      span.title 中国共产党地方组织选举工作条例
+      .yema-phone
+        span.now 
+        span.cent /
+        span.all
     .phone-conn
     .bottom-bar
       .left(o-tap="lastPage")
         img(src="@|left.png|")
         span 上一页
       .cent
-        .cent-button(o-tap="showDuizhao") 修改前后对照表
+        .cent-button.dzb(o-tap="showDuizhao") 修改前后对照表
+        .cent-button.xxd(o-tap="showDuizhao") 新修订版
       .right(o-tap="nextPage")
         span 下一页
         img(src="@|right.png|")
@@ -51,9 +54,9 @@
       .tool-item(o-tap="sizeJian")
         img(src="@|suoxiao.png|")
         span 缩小
-      .tool-item(o-tap="huanfu")
-        img(src="@|huanfu.png|")
-        span 换肤
+      //- .tool-item(o-tap="huanfu")
+      //-   img(src="@|huanfu.png|")
+      //-   span 换肤
       .tool-item
         a(href="#")
           img(src="@|jiedu.png|")
@@ -142,6 +145,7 @@ module.exports = {
   },
   creatPage: function () {
     const mockData = editData[this.data.nowIndex]
+    console.log(mockData)
     this.query('.left-right-box').style.opacity = 0
     let newHtml = ''
     mockData.forEach(element => {
@@ -180,6 +184,13 @@ module.exports = {
         this.query('.left-right-box').style.opacity = 1
       }, 0);
     }
+    if (this.query('.yema-phone .all')) {
+      this.query('.yema-phone .now').innerText = this.data.nowIndex + 1
+      this.query('.yema-phone .all').innerText = editData.length
+      setTimeout(() => {
+        this.query('.left-right-box').style.opacity = 1
+      }, 0);
+    }
     // 生成手机的
     let newHtmlPhone = ''
     mockData.forEach(element => {
@@ -188,6 +199,9 @@ module.exports = {
         newHtmlPhone += `<div class="item old-item">${element[1]}</div>`
       }
     });
+    if (editData.length == (this.data.nowIndex + 1)) {
+      newHtmlPhone += '<div class="box-show">' + this.query('.left-show').innerHTML + '</div>'
+    }
     this.query('.phone-conn').innerHTML = newHtmlPhone
   },
   lastPage: function () {
@@ -195,6 +209,7 @@ module.exports = {
     if (mockData) {
       this.data.nowIndex--
       this.data.isShowDuizhao = false
+      this.$el.classList.remove('duizhao')
       this.creatPage()
     } else {
       owo.tool.toast('已经是第一页了!')
@@ -205,6 +220,7 @@ module.exports = {
     if (mockData) {
       this.data.nowIndex++
       this.data.isShowDuizhao = false
+      this.$el.classList.remove('duizhao')
       this.creatPage()
     } else {
       owo.tool.toast('已经是最后一页了!')
@@ -217,11 +233,7 @@ module.exports = {
       owo.tool.toast('红蓝标注分别代表新增，修改的内容', {
         time: 4000
       })
-      this.query('.cent-button').innerText = '新修订版'
-      this.query('.duizhao').innerText = '新修订版'
     } else {
-      this.query('.cent-button').innerText = '修改前后对照表'
-      this.query('.duizhao').innerText = '修改前后对照表'
       this.$el.classList.remove('duizhao')
     }
     this.creatPage()
@@ -342,6 +354,14 @@ module.exports = {
     font-style: normal;
   }
 }
+.yema-phone {
+  .cent {
+    margin: 0 4px;
+  }
+  .all {
+    font-style: normal;
+  }
+}
 b {
   font-weight: normal;
 }
@@ -452,7 +472,7 @@ b {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   border: 1px solid #ccc;
   border-style: dashed;
   border-radius: 5px;
@@ -508,5 +528,20 @@ b {
       outline: none;
     }
   }
+}
+.xxd {
+  display: none;
+}
+.box-show {
+  margin-top: 40px;
+}
+.box-show h1 {
+  font-size: 22px;
+  text-indent: 0;
+  text-align: center;
+}
+.box-show img {
+  margin: 0 auto;
+  display: block;
 }
 </style>
