@@ -225,3 +225,7 @@ body {
 .duizhao .xxd {
   display: block;
 }
+
+.page2 {
+  z-index: 9;
+}
